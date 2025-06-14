@@ -1,0 +1,42 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://dev.emportal.me/#/');
+  await page.getByRole('textbox', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).fill('srikanth.mallela@edvenswatech.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('Sreekanth@1997');
+  await page.getByRole('textbox', { name: 'Captcha' }).click();
+  await page.getByRole('textbox', { name: 'Captcha' }).fill('jBflM1');
+  await page.getByRole('button', { name: 'Login', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Captcha' }).click();
+  await page.getByRole('textbox', { name: 'Captcha' }).press('ArrowLeft');
+  await page.getByRole('textbox', { name: 'Captcha' }).press('ArrowLeft');
+  await page.getByRole('textbox', { name: 'Captcha' }).fill('jBfIM1');
+  await page.getByRole('button', { name: 'Login', exact: true }).click();
+  await page.getByRole('navigation', { name: 'breadcrumb' }).getByRole('listitem').click();
+  await page.getByRole('button', { name: 'Manage Tasks Manage Tasks' }).click();
+  await page.getByRole('button', { name: 'Add Tasks' }).click();
+  await page.getByRole('textbox', { name: 'Task Name' }).click();
+  await page.getByRole('textbox', { name: 'Task Name' }).fill('First Task');
+  await page.getByRole('textbox', { name: 'hh:mm' }).click();
+  await page.getByRole('textbox', { name: 'hh:mm' }).fill('5:00');
+  await page.getByRole('textbox', { name: 'Task Description' }).click();
+  await page.getByRole('textbox', { name: 'Task Description' }).fill('Adding First Task');
+  await page.getByRole('textbox', { name: 'Start Date' }).fill('2025-06-09');
+  await page.getByRole('textbox', { name: 'End Date' }).fill('2025-06-13');
+  await page.getByRole('combobox', { name: 'Projects' }).click();
+  await page.getByRole('option', { name: 'EmPortal' }).click();
+  await page.getByRole('combobox', { name: 'Task Categories' }).click();
+  await page.getByRole('option', { name: 'Code Commit Push' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('row', { name: 'EmPortal Sheryl Hettinger' }).getByLabel('Click to Delete').click();
+  await page.getByRole('button', { name: 'Delete' }).click();
+ 
+  await page.getByRole('button', { name: 'Manage Timesheets Manage' }).click();
+  await page.getByText('Timesheet for Mallela Srikanth').click();
+  await page.getByRole('button', { name: 'Manage Tasks Manage Tasks' }).click();
+  await page.getByRole('button', { name: 'Click to Delete' }).click();
+  await page.getByRole('button', { name: 'Delete' }).click();
+  await page.getByRole("button", { name: "Delete" }).click();
+});
